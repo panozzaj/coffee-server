@@ -2,6 +2,7 @@ var http = require('http');
 var request = require('request');
 
 
+// these need to be defined in order for the app to work
 var slackHookUrl = process.env.SLACK_HOOK_URL;
 var brewingPath = process.env.BREWING_PATH;
 var readyPath = process.env.READY_PATH;
@@ -40,7 +41,7 @@ function postMessage(text, res) {
     };
 
     request.post({
-        url: baseUrl,
+        url: slackHookUrl,
         json: payload,
     }, function(err, response, body) {
         console.log('body: ', body);
