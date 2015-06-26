@@ -16,6 +16,9 @@ http.createServer(function(req, res) {
         brewing(res);
     } else if (url === readyPath) {
         ready(res);
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end();
     }
 }).listen(9999);
 
